@@ -12,9 +12,9 @@ const AuthorSchema = new db.Schema({
 AuthorSchema.pre('remove', next => {
   BookModel.find({
     author: this.id
-  }, (error, books) => {
-    if (error) {
-      next(error);
+  }, (err, books) => {
+    if (err) {
+      next(err);
     } else if (books.length > 0) {
       next(new Error('Remove all books before the author'));
     } else {
@@ -32,7 +32,7 @@ AuthorSchema.pre('remove', async next => {
       if (err) throw err;
       if (books.length > 0)
         throw new Error('Remove all books before the author');
-    })
+    });
     next();
   } catch (err) {
     next(err);
