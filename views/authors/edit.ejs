@@ -1,0 +1,7 @@
+<% title = `Edit ${author.name}`; %>
+<section>
+  <form method="POST" action="/authors/<%= author.id %>?method=PUT">
+    <input type="text" name="name" value="<%= author.name %>" placeholder="Author">
+    <button type="submit">Update</button>
+  </form>
+</section>

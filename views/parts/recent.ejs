@@ -1,0 +1,20 @@
+<!-- NOTE: What's wrong with this if statatement? -->
+<% if (collection.length == 0) { %>
+  <section>
+    <h3><%= subtitle %></h3>
+    <ul>
+    <% switch (collectionName) {
+      case 'Author': %>
+        <% collection.forEach(author => { %>
+          <li><a href="/authors/<%= author.id %>"><%= author.name %></a></li>
+        <% }) %>
+      <% break;
+      case 'Book': %>
+        <% collection.forEach(book => { %>
+          <!-- TODO: Populate books to display author and date -->
+          <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+        <% }) %>
+      <% break; } %>
+    </ul>
+  </section>
+<% } %>

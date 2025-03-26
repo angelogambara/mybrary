@@ -1,0 +1,19 @@
+<% title = 'Books'; %>
+<section>
+  <form method="GET" action="/books">
+    <input type="text" name="s" value="<%= query.s %>" placeholder="Book">
+    <input type="date" name="pa" value="<%= query.pa %>" title="Published  after">
+    <input type="date" name="pb" value="<%= query.pb %>" title="Published before">
+    <button type="submit">Search</button>
+  </form>
+</section>
+<%- include('../parts/recent.ejs', {
+  collection: booksByPublishDate,
+  collectionName: 'Book',
+  subtitle: 'Published Recently'
+}); %>
+<%- include('../parts/recent.ejs', {
+  collection: booksByCreatedDate,
+  collectionName: 'Book',
+  subtitle: 'Added Recently'
+}); %>

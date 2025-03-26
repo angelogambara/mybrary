@@ -1,0 +1,18 @@
+<% title = `Edit ${book.title}`; %>
+<section>
+  <form method="POST" action="/books/<%= book.id %>?method=PUT">
+    <input type="text" name="title" value="<%= book.title %>" placeholder="Title">
+    <input type="date" name="publishDate" value="<%= book.publishDate == null ? ''
+      : book.publishDate.toISOString().split('T')[0] %>" title="Publish date">
+    <select name="author" title="Author">
+    <% authors.forEach(author => { %>
+      <option label="<%= author.name %>" value="<%= author.id %>"
+        <% if (author.id == book.author) { %>
+          selected
+        <% } %>
+      ></option>
+    <% }) %>
+    </select>
+    <button type="submit">Update</button>
+  </form>
+</section>

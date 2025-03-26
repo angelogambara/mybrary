@@ -1,0 +1,8 @@
+<% title = book.title; %>
+<section>
+  <h2><%= book.title %></h2>
+  <a href="/books/<%= book.id %>/edit">Edit</a>
+  <form method="POST" action="/books/<%= book.id %>?method=DELETE">
+    <button type="submit">Delete</button>
+  </form>
+</section>

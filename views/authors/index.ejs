@@ -1,0 +1,12 @@
+<% title = 'Authors'; %>
+<section>
+  <form method="GET" action="/authors">
+    <input type="text" name="s" value="<%= query.s %>" placeholder="Author">
+    <button type="submit">Search</button>
+  </form>
+</section>
+<%- include('../parts/recent.ejs', {
+  collection: authorsByName,
+  collectionName: 'Author',
+  subtitle: 'Registered'
+}); %>

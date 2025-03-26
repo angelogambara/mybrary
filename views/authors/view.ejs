@@ -1,0 +1,13 @@
+<% title = author.name; %>
+<section>
+  <h2><%= author.name %></h2>
+  <a href="/authors/<%= author.id %>/edit">Edit</a>
+  <form method="POST" action="/authors/<%= author.id %>?method=DELETE">
+    <button type="submit">Delete</button>
+  </form>
+</section>
+<%- include('../parts/recent.ejs', {
+  collection: authorBooksByTitle,
+  collectionName: 'Book',
+  subtitle: `Books By Author`
+}); %>
